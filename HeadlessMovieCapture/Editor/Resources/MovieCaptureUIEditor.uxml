@@ -1,0 +1,77 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:VisualElement style="background-color: rgb(89, 89, 89);">
+        <ui:VisualElement style="padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">
+            <ui:Label text="HEADLESS MOVIE CAPTURE v2.0.0" />
+        </ui:VisualElement>
+        <ui:VisualElement name="ui-message-area" style="background-color: rgb(51, 51, 51); border-left-color: rgb(128, 128, 128); border-right-color: rgb(128, 128, 128); border-top-color: rgb(128, 128, 128); border-bottom-color: rgb(128, 128, 128); border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-top-left-radius: 5px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;">
+            <ui:VisualElement style="flex-direction: row;">
+                <ui:Label text="Status:" display-tooltip-when-elided="true" style="font-size: 10px;" />
+                <ui:Label text="OK" display-tooltip-when-elided="true" style="color: rgb(0, 255, 21); font-size: 10px;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-direction: row;">
+                <ui:Label text="Rendering Path:" display-tooltip-when-elided="true" style="font-size: 10px;" />
+                <ui:Label text="Forward" display-tooltip-when-elided="true" style="color: rgb(255, 255, 255); font-size: 10px;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-direction: row;">
+                <ui:Label text="Rendering Pipeline:" display-tooltip-when-elided="true" style="font-size: 10px;" />
+                <ui:Label text="HDRP" display-tooltip-when-elided="true" style="color: rgb(255, 255, 255); font-size: 10px;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-direction: row;">
+                <ui:Label text="Resolution:" display-tooltip-when-elided="true" style="font-size: 10px;" />
+                <ui:Label text="1920x1080" display-tooltip-when-elided="true" style="color: rgb(255, 255, 255); font-size: 10px;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-direction: row;">
+                <ui:Label text="Output Path:" display-tooltip-when-elided="true" style="font-size: 10px;" />
+                <ui:Label text="C:\Unity\Renders\movie.mp4" display-tooltip-when-elided="true" style="color: rgb(255, 255, 255); font-size: 10px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:Button text="Capture" display-tooltip-when-elided="true" name="btnCapture" class="capture" />
+    </ui:VisualElement>
+    <ui:VisualElement style="margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;">
+        <ui:Toggle label="Capture" tooltip="When not set, there will be no output." name="tglCapture" />
+        <ui:VisualElement style="margin-top: 5px;">
+            <ui:Label text="General Options" display-tooltip-when-elided="true" style="-unity-font-style: bold; background-color: rgb(89, 89, 89); -unity-text-align: upper-center; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 5px;" />
+            <ui:Toggle label="Flip Result" tooltip="Flips or unflips the result. This is requires due to some Unity quirks on capturing on the AfterEverthingEvent." name="tglFlip" />
+            <ui:Toggle label="Async GPU Calls" tooltip="Uses async GPU calls to retrieve the render textures. Can save some CPU cycles. Only works with DirectX, which makes this Windows only feature." name="tglAsync" />
+            <ui:TextField picking-mode="Ignore" label="Token date format" text="HHmmddmmyyyy" tooltip="Date format when using the date token. Please consult C# custom date format options at https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings." name="txtTokenFormat" />
+        </ui:VisualElement>
+        <ui:VisualElement style="margin-top: 5px;">
+            <ui:Label text="Capture" display-tooltip-when-elided="true" name="ui-capture-group" style="-unity-font-style: bold; background-color: rgb(89, 89, 89); -unity-text-align: upper-center; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 5px;" />
+            <uie:EnumField label="Preset" value="Center" tooltip="Capture settings preset." name="cmbPreset" />
+            <ui:TextField picking-mode="Ignore" label="FPS" text="60" tooltip="Sets the Application.targetFramerate, and is the framerate for the output video." name="txtFPS" />
+            <ui:Toggle label="Realtime" tooltip="Captures as fast as possible, but with frame drops, and maay not respect the requested framerate.\nNote when disable, it will render at the requested framerate, but it&apos;s not a good option for any realtime gameplay capture." name="tglRealtime" />
+            <ui:Toggle label="Audio" tooltip="Capture audio." name="tglAudio" />
+        </ui:VisualElement>
+        <ui:VisualElement style="margin-top: 5px;">
+            <ui:Label text="Encoding" display-tooltip-when-elided="true" style="-unity-font-style: bold; background-color: rgb(89, 89, 89); -unity-text-align: upper-center; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 5px;" />
+            <uie:EnumField label="Format" type="HeadlessStudio.FFmpegOutput, Headless.Studio.MovieCapture.Native" tooltip="FFmpeg output formats." name="cmbFormat" />
+            <uie:EnumField label="Encoder Preset" type="HeadlessStudio.FFmpegPreset, Headless.Studio.MovieCapture.Native" tooltip="This controls the quality of the output, VerySlow is the best quality but takes more time." name="cmbEncoderPreset" />
+            <ui:TextField picking-mode="Ignore" label="Video Bitrate" value="filler text" text="2500" name="txtVideoBitrate" tooltip="Sets the video bitrate. 0 disables this parameter." />
+            <ui:TextField picking-mode="Ignore" label="Audio Bitrate" value="filler text" text="128" name="txtAudioBitrate" tooltip="Sets the audio bitrate. 0 disables this parameter." />
+        </ui:VisualElement>
+        <ui:VisualElement style="margin-top: 5px;">
+            <ui:Label text="Output" display-tooltip-when-elided="true" style="-unity-font-style: bold; background-color: rgb(89, 89, 89); -unity-text-align: upper-center; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 5px;" />
+            <ui:TextField picking-mode="Ignore" label="Folder" text="recordings" tooltip="The output folder. Tokens supported $camera and $date." name="txtOutputFolder" />
+            <ui:TextField picking-mode="Ignore" label="Filename" text="capture-$date" tooltip="The output filename with no extension. Tokens supported $camera and $date" name="txtOutputFile" />
+            <ui:Toggle label="Open output folder" name="tglOpenOutput" />
+        </ui:VisualElement>
+        <ui:VisualElement style="margin-top: 5px;">
+            <ui:Label text="Streaming" display-tooltip-when-elided="true" style="-unity-font-style: bold; background-color: rgb(89, 89, 89); -unity-text-align: upper-center; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 5px;" />
+            <ui:Toggle label="Streaming" tooltip="Enable streaming." name="tglStreaming" />
+            <ui:TextField picking-mode="Ignore" label="Keyframe Interval" value="filler text" text="120" tooltip="FFmpeg key interval option (-g). Set 0 for auto." name="txtKeyframeInterval" />
+            <ui:TextField picking-mode="Ignore" label="Address" value="filler text" text="rtmp://127.0.0.1:8889/live/app" tooltip="Streaming URL." name="txtStreamingURL" />
+        </ui:VisualElement>
+        <ui:VisualElement style="margin-top: 5px;">
+            <ui:Label text="Experimental" display-tooltip-when-elided="true" style="-unity-font-style: bold; background-color: rgb(89, 89, 89); -unity-text-align: upper-center; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 5px;" />
+            <ui:Toggle label="Unity Recorder Timing" tooltip="Uses the same approach as Unity recorder frame timing. It may work better in some situations. The default is our custom timing solution." name="tglUnityRecorder" />
+            <ui:Toggle label="Unity Screenshot API" tooltip="Uses the Unity Screenshot utility method to capture the game output. Normally doesn&apos;t improve performance/overhead." name="tglUnityScreenshot" />
+            <uie:ObjectField label="Timeline" type="UnityEngine.Playables.PlayableDirector,  UnityEngine.DirectorModule" tooltip="Capture only during the duration of the timeline asset." name="tmlTimeline" />
+        </ui:VisualElement>
+        <ui:VisualElement style="margin-top: 5px;">
+            <ui:Label text="Logging" display-tooltip-when-elided="true" style="-unity-font-style: bold; background-color: rgb(89, 89, 89); -unity-text-align: upper-center; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 5px;" />
+            <ui:Toggle label="Show FPS" tooltip="Shows the average FPS during recording. Please note that when recording there is always some overhead, which are shown in this FPS counter." name="tglShowFPS" />
+            <ui:Toggle label="Log messages" tooltip="Logs some operations of the component to the Unity Console. If disable only, warnings and errors are logged." name="tglShowMessages" />
+            <ui:Toggle label="Log to file" tooltip="When enable creates a diagnostic log file called HeadlessMovieCapture.log on the root of the project or game." name="tglLogFile" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

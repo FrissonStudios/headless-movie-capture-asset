@@ -1,0 +1,20 @@
+{
+    "name": "com.headlessstudio.moviecapture",
+    "displayName": "Headless Studio Movie Capture",
+    "version": "2.0.0",
+    "unity": "2019.4",
+    "unityRelease": "1f1",
+    "description": "Headless Movie Capture is a simple to use component that just needs to be attached to your main Camera. With as few options as possible, it captures the render output into a MP4 h264 encoded file, GIF or can be streamed.",
+    "keywords": [
+        "recorder",
+        "recording",
+        "capture",
+        "video",
+        "streaming"
+    ],
+    "relatedPackages": {},
+    "upmCi": {},
+    "type": "library",
+    "hideInEditor": false,
+    "dependencies": {}
+}

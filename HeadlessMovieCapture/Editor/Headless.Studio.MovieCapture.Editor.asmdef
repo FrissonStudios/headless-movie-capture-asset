@@ -1,0 +1,29 @@
+{
+    "name": "headless.studio.moviecapture.editor",
+    "references": [
+        "GUID:73532220c06a00149a2acb197182c948",
+        "GUID:457756d89b35d2941b3e7b37b4ece6f1",
+        "GUID:0f3a994cee575bd438f1514013178da1",
+        "GUID:15fc0a57446b3144c949da3e2b9737a9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.render-pipelines.high-definition",
+            "expression": "7.0.0",
+            "define": "HEADLESS_MOVIE_CAPTURE_HDRP"
+        },
+        {
+            "name": "com.unity.render-pipelines.universal",
+            "expression": "7.0.0",
+            "define": "HEADLESS_MOVIE_CAPTURE_URP"
+        }
+    ],
+    "noEngineReferences": false
+}

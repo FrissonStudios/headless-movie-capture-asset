@@ -1,0 +1,78 @@
+{
+  "presets": [
+    {
+      "name": "File",
+      "options": "",
+      "codec": "H264",
+      "preset": "UltraFast",
+      "keyframeinterval": "0",
+      "videobitrate": "20M",
+      "audiobitrate": "128k",
+      "streaming": false
+    },
+    {
+      "name": "File (Film)",
+      "options": "-crf 18 -tune film",
+      "codec": "H264",
+      "preset": "UltraFast",
+      "keyframeinterval": "0",
+      "videobitrate": "0",
+      "audiobitrate": "128k",
+      "streaming": false
+    },
+    {
+      "name": "File (Small)",
+      "options": "-crf 30",
+      "codec": "H264",
+      "preset": "UltraFast",
+      "keyframeinterval": "0",
+      "videobitrate": "0",
+      "audiobitrate": "128k",
+      "streaming": false
+    },
+    {
+      "name": "Local streaming",
+      "options": "-f flv -listen 1 -rtmp_live live",
+      "codec": "H264",
+      "preset": "VeryFast",
+      "keyframeinterval": "$fpsmul2",
+      "videobitrate": "4500k",
+      "audiobitrate": "128k",
+      "streaming": true,
+      "streamingAddress": "rtmp://127.0.0.1:8889/live/app"
+    },
+    {
+        "name": "Twitch",
+        "options": "-maxrate $vb -bufsize $vb -f flv -rtmp_live live",
+        "codec": "H264",
+        "preset": "VeryFast",
+        "keyframeinterval": "$fpsmul2",
+        "videobitrate": "4500k",
+        "audiobitrate": "128k",
+        "streaming": true,
+        "streamingAddress": "rtmp://lax.contribute.live-video.net/app/STREAM-KEY"
+    },
+    {
+      "name": "Youtube",
+      "options": "-maxrate $vb -bufsize $vb -f flv -rtmp_live live",
+      "codec": "H264",
+      "preset": "VeryFast",
+      "keyframeinterval": "$fpsmul2",
+      "videobitrate": "4500k",
+      "audiobitrate": "128k",
+      "streaming": true,
+      "streamingAddress": "rtmp://a.rtmp.youtube.com/live2/STREAM-KEY"
+    },
+    {
+      "name": "Facebook",
+      "options": "-maxrate $vb -bufsize $vb -f flv -rtmp_live live",
+      "codec": "H264",
+      "preset": "VeryFast",
+      "keyframeinterval": "$fpsmul2",
+      "videobitrate": "4500k",
+      "audiobitrate": "128k",
+      "streaming": true,
+      "streamingAddress": "rtmps://live-api-s.facebook.com:443/rtmp/STREAM-KEY"
+    }
+  ]
+}

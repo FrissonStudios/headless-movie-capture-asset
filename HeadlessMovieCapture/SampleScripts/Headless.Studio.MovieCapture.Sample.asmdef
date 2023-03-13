@@ -1,0 +1,16 @@
+{
+    "name": "headless.studio.moviecapture.sample",
+    "rootNamespace": "",
+    "references": [
+        "GUID:73532220c06a00149a2acb197182c948"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

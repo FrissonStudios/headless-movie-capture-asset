@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:Label text="Welcome to Headless Studio Movie Capture." style="align-items: auto; -unity-text-align: upper-center; -unity-font-style: bold; font-size: 14px; padding-bottom: 10px; padding-top: 5px;">
+        <Style src="FFmpegInstallerStyles.uss" />
+    </ui:Label>
+    <ui:Label text="Before you can use this package, we need to download FFmpeg for Windows, MacOS and Linux.&#10;Please click the DOWNLOAD button below and we will handle the instalation of FFmpeg into the StreamingAssets folder." style="white-space: normal; padding-left: 5px; padding-right: 5px; margin-bottom: 15px;">
+        <Style src="FFmpegInstallerStyles.uss" />
+    </ui:Label>
+    <ui:VisualElement name="ui-download" style="margin-left: 5px; margin-right: 5px; margin-bottom: 10px; overflow: visible;">
+        <Style src="FFmpegInstallerStyles.uss" />
+        <ui:Button text="DOWNLOAD" name="ui-download-button" style="padding-top: 1px; opacity: 1; visibility: visible; display: flex;" />
+    </ui:VisualElement>
+</ui:UXML>
